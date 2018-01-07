@@ -11,8 +11,11 @@ import io.reactivex.Observable;
  *
  * @author webprog26
  */
-public interface ObservablesCombiner {
-    void combine(Observable o, Observable o1);
-    
-    void combine(Observable<String> o);
+public abstract class AbstractCombiner implements ObservablesCombiner{
+
+    @Override
+    public void combine(Observable o, Observable o1) {}
+
+    @Override
+    public void combine(Observable<String> o) {}
 }

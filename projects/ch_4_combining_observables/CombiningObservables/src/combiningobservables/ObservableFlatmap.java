@@ -11,8 +11,14 @@ import io.reactivex.Observable;
  *
  * @author webprog26
  */
-public interface ObservablesCombiner {
-    void combine(Observable o, Observable o1);
+public class ObservableFlatmap extends AbstractCombiner{
+
+    @Override
+    public void combine(Observable<String> o) {
+        o.flatMap(s -> Observable.fromArray(s.split("")))
+                .subscribe(System.out::println);
+        super.combine(o);
+    }
     
-    void combine(Observable<String> o);
+    
 }

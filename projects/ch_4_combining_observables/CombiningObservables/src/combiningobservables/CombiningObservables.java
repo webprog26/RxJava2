@@ -16,13 +16,23 @@ public class CombiningObservables {
    
     private static final Observable<String> source = Observable.just("Alpha", "Beta", "Gamma", "Delta", "Epsilon");
     private static final Observable<String> source2 = Observable.just("Zeta", "Eta", "Theta");
+    private static final Observable<Integer> source3 = Observable.range(1,6);
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ObservablesCombiner merge = new ObservableMerge();
-        merge.combine(source, source2);
+//        AbstractCombiner merge = new ObservableMerge();
+//        merge.combine(source, source2);
+//        
+//        AbstractCombiner flatMap = new ObservableFlatmap();
+//        flatMap.flatMap(source);
+        
+//        AbstractCombiner zip = new ObservableZip();
+//        zip.combine(source, source3);
+        
+        AbstractCombiner group = new ObservableGrouping();
+        group.combine(source);
     }
     
 }
